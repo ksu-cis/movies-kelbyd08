@@ -29,32 +29,42 @@
     </div>
     <form method="post">
         <h4>Search</h4>
-        <input type="text" name="search" />
-        <input type="submit" value="Search" />
+        <input type="text" name="search" value="@Model.search" />
+        <input type="submit" value="Search and filter" />
 
         <h4>Filter by Rating Label</h4>
         <div class="checkbox-list">
             <label>
-                <input type="checkbox" name="rating" value="G" />
+                <input type="checkbox" name="rating" value="G" checked="@Model.mpaa.Contains("G")"/>
                 Rated G
             </label>
             <label>
-                <input type="checkbox" name="rating" value="PG" />
+                <input type="checkbox" name="rating" value="PG" checked="@Model.mpaa.Contains("PG")"/>
                 Rated PG
             </label>
             <label>
-                <input type="checkbox" name="rating" value="PG-13" />
+                <input type="checkbox" name="rating" value="PG-13" checked="@Model.mpaa.Contains("PG-13")"/>
                 Rated PG-13
             </label>
             <label>
-                <input type="checkbox" name="rating" value="R" />
+                <input type="checkbox" name="rating" value="R" checked="@Model.mpaa.Contains("R")"/>
                 Rated R
             </label>
             <label>
-                <input type="checkbox" name="rating" value="NC-17" />
+                <input type="checkbox" name="rating" value="NC-17" checked="@Model.mpaa.Contains("NC-17")"/>
                 Rated NC-17
             </label>
         </div>
+
+        <h4>Review Scores</h4>
+        <label>
+            Minimum IMDB Rating:
+            <input type="number" min="0" max="10" step=".1" name="minIMDB" value="@Model.minIMDB" />
+        </label>
+        <label>
+            Maximum IMDB Rating:
+            <input type="number" min="0" max="10" step=".1" name="maxIMDB" value="@Model.maxIMDB" />
+        </label>
     </form>
 </div>
 <h1>Hello World</h1>
